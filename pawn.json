@@ -1,11 +1,18 @@
 {
 	"user": "betomat0ss",
 	"repo": "San-Andreas-Roleplay",
-	"tag": "0.0.1",
 	"entry": "gamemodes/sa-rp.pwn",
 	"output": "gamemodes/sa-rp.amx",
 	"dependencies": [
-		"pawn-lang/samp-stdlib"
+		"pawn-lang/samp-stdlib",
+		"pBlueG/SA-MP-MySQL",
+		"pawn-lang/YSI-Includes"
 	],
-	"local": true
+	"local": true,
+	"runtime": {
+		"version": "0.3.7",
+		"mode": "server",
+		"rcon_password": "password",
+		"port": 7777
+	}
 }
