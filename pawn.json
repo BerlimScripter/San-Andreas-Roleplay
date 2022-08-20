@@ -1,0 +1,11 @@
+{
+	"user": "betomat0ss",
+	"repo": "San-Andreas-Roleplay",
+	"tag": "0.0.1",
+	"entry": "gamemodes/sa-rp.pwn",
+	"output": "gamemodes/sa-rp.amx",
+	"dependencies": [
+		"pawn-lang/samp-stdlib"
+	],
+	"local": true
+}
