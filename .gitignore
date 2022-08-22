@@ -10,3 +10,6 @@ dependencies/md-sort/
 dependencies/SA-MP-MySQL/
 dependencies/YSI-Includes/
 dependencies/bcrypt-samp/
+mysql.ini
+logs
+server_log

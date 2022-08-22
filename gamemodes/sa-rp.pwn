@@ -15,7 +15,7 @@
 #define     DEFAULT_SPAWN_Z         (15.4453)
 #define     DEFAULT_SPAWN_A         (357.8071)
 
-#define     CHAT_LOCAL_RANGE        (20.0)
+#define     CHAT_LOCAL_RANGE        (15.0)
 
 // enum's
 
