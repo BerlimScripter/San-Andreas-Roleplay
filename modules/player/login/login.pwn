@@ -2,23 +2,28 @@
 
 hook OnPlayerRequestClass(playerid, classid)
 {
+    PlayerPlaySound(playerid, 176, 0.0, 0.0, 0.0);
     CleanPlayerChat(playerid);
+
     SetPlayerCameraPos(playerid, 635.4689,-1917.6497,58.3797);
     SetPlayerCameraLookAt(playerid, 534.3591,-1854.5668,26.9556, CAMERA_MOVE);
+
     LoadPlayerInfo(playerid);
     return 1;
 }
 
 hook OnPlayerSpawn(playerid)
 {
-    if(PlayerInfo[playerid][pLogged] == false)
+    if(!IsPlayerLogged(playerid))
+    {
         return Kick(playerid);
+    }  
     return 1;
 }
 
 hook OnPlayerDisconnect(playerid, reason)
 {
-    if(PlayerInfo[playerid][pLogged] == true)
+    if(IsPlayerLogged(playerid))
     {
         SavePlayerInfo(playerid);
     }
@@ -63,8 +68,14 @@ function VerifyRegister(playerid)
     
     switch(orm_errno(PlayerInfo[playerid][pORM]))
     {
-        case ERROR_OK: ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Login", "Bem vindo(a) ao nosso servidor!\n\nDigite sua senha para entrar:", "Entrar", "Sair");
-        case ERROR_NO_DATA: ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, "Registro", "Bem vindo(a) ao nosso servidor!\n\nDigite uma senha para se registrar:", "Registrar", "Sair");
+        case ERROR_OK: 
+        {
+            ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, ""COLOR_WHITE"Login", ""COLOR_WHITE"Bem vindo(a) ao nosso servidor!\n\nDigite sua senha para entrar:", ""COLOR_WHITE"Entrar", ""COLOR_WHITE"Sair");
+        }
+        case ERROR_NO_DATA: 
+        {
+            ShowPlayerDialog(playerid, DIALOG_REGISTER, DIALOG_STYLE_PASSWORD, ""COLOR_WHITE"Registro", ""COLOR_WHITE"Bem vindo(a) ao nosso servidor!\n\nDigite uma senha para se registrar:", ""COLOR_WHITE"Registrar", ""COLOR_WHITE"Sair");
+        }
     }
     return 1;
 }
@@ -79,14 +90,16 @@ function VerifyPassword(playerid)
     }
     else
     {
-        SendClientMessage(playerid, -1, "{ff0000}ERRO: {ffffff}Senha incorreta.");
-        ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, "Login", "Bem vindo(a) ao nosso servidor!\n\nDigite sua senha para entrar:", "Entrar", "Sair");
+        SendClientMessage(playerid, -1, ""COLOR_RED"ERRO: "COLOR_WHITE"Senha incorreta.");
+        ShowPlayerDialog(playerid, DIALOG_LOGIN, DIALOG_STYLE_PASSWORD, ""COLOR_WHITE"Login", ""COLOR_WHITE"Bem vindo(a) ao nosso servidor!\n\nDigite sua senha para entrar:", ""COLOR_WHITE"Entrar", ""COLOR_WHITE"Sair");
     }
     return 1;
 }
 
 SetPlayerInfo(playerid)
 {
+    PlayerPlaySound(playerid, 0, 0.0, 0.0, 0.0);
+
     PlayerInfo[playerid][pLogged] = true;
     SpawnPlayer(playerid);
 
@@ -105,11 +118,13 @@ SetPlayerInfo(playerid)
 function OnPasswordHashed(playerid)
 {
     bcrypt_get_hash(PlayerInfo[playerid][pPass]);
-    return ShowPlayerDialog(playerid, DIALOG_REGISTER_EMAIL, DIALOG_STYLE_INPUT, "E-mail", "Digite um e-mail para sua conta:\n\nDominios aceitos:\n\n- @gmail.com", "Registrar", "Sem e-mail");
+    return ShowPlayerDialog(playerid, DIALOG_REGISTER_EMAIL, DIALOG_STYLE_INPUT, ""COLOR_WHITE"E-mail", ""COLOR_WHITE"Digite um e-mail para sua conta:\n\nDominios aceitos:\n\n- @gmail.com", ""COLOR_WHITE"Registrar", ""COLOR_WHITE"Sem e-mail");
 }
 
 RegisterPlayerAccount(playerid)
 {
+    PlayerPlaySound(playerid, 0, 0.0, 0.0, 0.0);
+
     PlayerInfo[playerid][pLogged] = true;
     SpawnPlayer(playerid);
 
@@ -128,7 +143,6 @@ RegisterPlayerAccount(playerid)
 
 SavePlayerInfo(playerid)
 {
-
     GetPlayerIp(playerid, PlayerInfo[playerid][pIP], MAX_PLAYER_IP);
     PlayerInfo[playerid][pSkin] = GetPlayerSkin(playerid);
 
@@ -148,7 +162,6 @@ SavePlayerInfo(playerid)
 ResetPlayerInfo(playerid)
 {
     orm_destroy(PlayerInfo[playerid][pORM]);
-
     new e[E_PLAYER];
     PlayerInfo[playerid] = e;
     return 1;

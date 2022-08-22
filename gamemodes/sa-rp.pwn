@@ -10,14 +10,12 @@
 
 // defines
 
-#define     SERVER_NAME             "San Andreas Roleplay"
-#define     SERVER_MODE             "Roleplay"
-#define     SERVER_LANG             "Brazilian portuguese"
-
 #define     DEFAULT_SPAWN_X         (1481.2379)
 #define     DEFAULT_SPAWN_Y         (-1751.3661)
 #define     DEFAULT_SPAWN_Z         (15.4453)
 #define     DEFAULT_SPAWN_A         (357.8071)
+
+#define     CHAT_LOCAL_RANGE        (20.0)
 
 // enum's
 
@@ -32,15 +30,15 @@ enum // dialogs
 // modules
 
 #include    "..\modules\core\util.pwn"
+#include    "..\modules\core\server.pwn"
 #include    "..\modules\core\database.pwn"
 
 #include    "..\modules\player\info\info.pwn"
+
 #include    "..\modules\player\login\login.pwn"
 #include    "..\modules\player\login\dialogs.pwn"
 
+#include    "..\modules\player\chat\chat.pwn"
+
 main()
-{
-    SendRconCommand("hostname "SERVER_NAME"");
-    SendRconCommand("gamemodetext "SERVER_MODE"");
-    SendRconCommand("language "SERVER_LANG"");
-}
+{}

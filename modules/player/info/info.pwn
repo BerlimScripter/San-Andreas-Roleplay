@@ -32,3 +32,8 @@ enum E_PLAYER
 }
 
 new PlayerInfo[MAX_PLAYERS][E_PLAYER];
+
+stock bool:IsPlayerLogged(playerid)
+{
+    return PlayerInfo[playerid][pLogged];
+}
