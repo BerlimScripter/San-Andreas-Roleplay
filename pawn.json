@@ -6,13 +6,15 @@
 	"dependencies": [
 		"pawn-lang/samp-stdlib",
 		"pBlueG/SA-MP-MySQL",
-		"pawn-lang/YSI-Includes"
+		"pawn-lang/YSI-Includes",
+		"lassir/bcrypt-samp"
 	],
 	"local": true,
 	"runtime": {
 		"version": "0.3.7",
 		"mode": "server",
 		"rcon_password": "password",
+		"language": "n/a",
 		"port": 7777
 	}
 }
