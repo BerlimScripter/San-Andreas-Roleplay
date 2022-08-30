@@ -1,7 +1,5 @@
 #include    <YSI_Coding\y_hooks>
 
-new MySQL:sqlConn;
-
 hook OnGameModeInit()
 {
     DatabaseInit();

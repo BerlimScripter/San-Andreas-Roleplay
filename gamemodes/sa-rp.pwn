@@ -27,18 +27,22 @@ enum // dialogs
     DIALOG_REGISTER_SKIN
 }
 
+// headers
+
+#include    "..\headers\player\PlayerInfo.inc"
+#include    "..\headers\server\DatabaseInfo.inc"
+#include    "..\headers\server\ServerInfo.inc"
+
 // modules
 
-#include    "..\modules\core\util.pwn"
-#include    "..\modules\core\server.pwn"
-#include    "..\modules\core\database.pwn"
+#include    "..\modules\core\util\colors.pwn"
+#include    "..\modules\core\util\functions.pwn"
 
-#include    "..\modules\player\info\info.pwn"
+#include    "..\modules\core\server-cfg\server-cfg.pwn"
+#include    "..\modules\core\database\database.pwn"
 
 #include    "..\modules\player\login\login.pwn"
 #include    "..\modules\player\login\dialogs.pwn"
-
-#include    "..\modules\player\chat\chat.pwn"
 
 main()
 {}
