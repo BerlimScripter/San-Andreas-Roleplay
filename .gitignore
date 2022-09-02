@@ -1,7 +1,6 @@
 
 dependencies/pawn-stdlib/
 dependencies/samp-stdlib/
-*.inc
 dependencies/.resources/SA-MP-MySQL-74cb22/libmariadb.dll
 dependencies/.resources/SA-MP-MySQL-74cb22/log-core.dll
 dependencies/amx_assembly/
@@ -13,3 +12,5 @@ dependencies/bcrypt-samp/
 mysql.ini
 logs
 server_log
+dependencies/.resources/SA-MP-MySQL-74cb22/a_mysql.inc
+dependencies/code-parse.inc/

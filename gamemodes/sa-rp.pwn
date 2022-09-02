@@ -38,7 +38,7 @@ enum // dialogs
 #include    "..\modules\core\util\colors.pwn"
 #include    "..\modules\core\util\functions.pwn"
 
-#include    "..\modules\core\server-cfg\server-cfg.pwn"
+#include    "..\modules\core\server_cfg\server_cfg.pwn"
 #include    "..\modules\core\database\database.pwn"
 
 #include    "..\modules\player\login\login.pwn"

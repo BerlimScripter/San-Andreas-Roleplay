@@ -1,6 +1,5 @@
 #include    <YSI_Coding\y_hooks>
 
-
 hook OnGameModeExit()
 {
     SendRconCommand("hostname "SERVER_NAME"");
@@ -8,5 +7,6 @@ hook OnGameModeExit()
     SendRconCommand("language "SERVER_LANG"");
 
     DisableInteriorEnterExits();
+    EnableStuntBonusForAll(0);
     return 1;
 }
